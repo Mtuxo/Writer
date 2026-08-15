@@ -1,0 +1,8 @@
+{
+  "name": "ethren-writing-studio-ai-coach",
+  "private": true,
+  "version": "4.5.0",
+  "dependencies": {
+    "@vercel/functions": "latest"
+  }
+}
