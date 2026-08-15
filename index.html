@@ -375,7 +375,7 @@ body::before{opacity:var(--bg-art-opacity,.16)}
         <button class="btn" id="syncMasterChapters">↻ Pull master chapters</button>
         <button class="btn ghost" id="restoreChapterBackup">Undo last pull</button>
         <button class="btn" id="exportChapters">Export chapters (.json)</button>
-        <div class="small">Publishing saves a readable master copy to <b>data/chapters.json</b> in your private Writer repository. That lets ChatGPT read the published chapters later. Local autosave still stays in your browser.</div>
+        <div class="small">Publishing saves a readable master copy to <b>Google Drive</b>. That lets ChatGPT read the published chapters directly. Local autosave still stays in your browser.</div>
       </div>
     </details>
 
@@ -599,7 +599,7 @@ const THEME='ethren-writing-studio-theme-live';
 const SETTINGS='ethren-writing-studio-settings-v2';
 const MASTER_BIBLE_URL='/api/drive-bible';
 const BIBLE_SYNC_BACKUP='ethren-writing-studio-bible-sync-backup-v1';
-const MASTER_CHAPTERS_URL='/data/chapters.json';
+const MASTER_CHAPTERS_URL='/api/drive-chapters';
 const CHAPTER_SYNC_BACKUP='ethren-writing-studio-chapter-sync-backup-v1';
 let masterBibleCache=null;
 let masterChaptersCache=null;
@@ -998,7 +998,7 @@ async function checkMasterChapters(){
   }
 }
 async function pullMasterChapters(){
-  if(!confirm('Pull the master chapter copies from GitHub? Matching chapters will be replaced by the published master versions. Local-only chapters will stay, and an undo backup will be created first.')) return;
+  if(!confirm('Pull the master chapter copies from Google Drive? Matching chapters will be replaced by the published master versions. Local-only chapters will stay, and an undo backup will be created first.')) return;
   try{
     sync(); saveProject();
     setChapterSyncStatus('Pulling master chapters…');
@@ -1039,8 +1039,8 @@ async function publishCurrentChapter(){
     const data=await chapterSyncPost({mode:'current',index:current,chapter:project.chapters[current]});
     project.masterChaptersUpdatedAt=String(data.updatedAt||''); saveProject();
     masterChaptersCache=null;
-    setChapterSyncStatus(`Published current chapter${data.commitSha?' • commit '+String(data.commitSha).slice(0,7):''}`,'good');
-    alert('Published. Once Vercel finishes the GitHub redeploy, this chapter is part of the master copy that ChatGPT can read.');
+    setChapterSyncStatus('Published current chapter to Google Drive','good');
+    alert('Published to Google Drive. ChatGPT can read the published master copy directly.');
   }catch(err){setChapterSyncStatus('Publish failed: '+err.message,'bad');alert(err.message);}
   finally{btn.disabled=false;btn.textContent='Publish current chapter';}
 }
@@ -1052,7 +1052,7 @@ async function publishAllChapters(){
     const data=await chapterSyncPost({mode:'all',chapters:project.chapters});
     project.masterChaptersUpdatedAt=String(data.updatedAt||''); saveProject();
     masterChaptersCache=null;
-    setChapterSyncStatus(`Published ${project.chapters.length} chapters${data.commitSha?' • commit '+String(data.commitSha).slice(0,7):''}`,'good');
+    setChapterSyncStatus(`Published ${project.chapters.length} chapters to Google Drive`,'good');
     alert('All chapters published to the private master copy.');
   }catch(err){setChapterSyncStatus('Publish failed: '+err.message,'bad');alert(err.message);}
   finally{btn.disabled=false;btn.textContent='Publish all chapters';}
