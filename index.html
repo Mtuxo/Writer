@@ -539,14 +539,15 @@ body::before{opacity:var(--bg-art-opacity,.16)}
 <div class="bible-modal" id="bibleModal">
   <div class="bible-shell">
     <div class="bible-top">
-      <div><div class="brand">ETHREN</div><h2>World Bible</h2><div class="small">This is the AI's persistent project memory. Local edits autosave; Sync Master pulls updates from data/story-bible.json without touching your chapters.</div></div>
+      <div><div class="brand">ETHREN</div><h2>World Bible</h2><div class="small">This is the AI's persistent project memory. Local edits autosave; Sync Master pulls the private master Bible from Google Drive without touching your chapters.</div></div>
       <button class="btn" id="closeBible">Close</button>
     </div>
     <div class="bible-tabs"><button class="bible-tab active" data-bible-tab="characters">Characters</button><button class="bible-tab" data-bible-tab="vestiges">Vestiges</button><button class="bible-tab" data-bible-tab="principles">Principles</button><button class="bible-tab" data-bible-tab="dimensions">Dimensions</button><button class="bible-tab" data-bible-tab="locations">Locations</button><button class="bible-tab" data-bible-tab="nobility">Nobility</button><button class="bible-tab" data-bible-tab="timeline">Timeline</button><button class="bible-tab" data-bible-tab="relationships">Relationships</button><button class="bible-tab" data-bible-tab="mysteries">Mysteries</button><button class="bible-tab" data-bible-tab="foreshadowing">Foreshadowing</button><button class="bible-tab" data-bible-tab="knowledge">Knowledge Map</button><button class="bible-tab" data-bible-tab="canonMemory">Canon Memory</button></div>
     <div class="bible-body">
       <div class="bible-syncbar">
         <div class="bible-sync-status" id="bibleSyncStatus">Master Bible: checking…</div>
-        <button class="btn primary" id="syncMasterBible">↻ Sync Master</button>
+        <button class="btn primary" id="syncMasterBible">↻ Sync Drive</button>
+        <button class="btn secondary" id="pushMasterBible">↑ Publish Bible to Drive</button>
         <button class="btn" id="exportBible">⇩ Export Bible</button>
         <button class="btn" id="importBible">⇧ Import Bible</button>
         <button class="btn ghost" id="restoreBibleBackup">Undo Last Sync</button>
@@ -596,7 +597,7 @@ body::before{opacity:var(--bg-art-opacity,.16)}
 const STORE='ethren-writing-studio-live-v1';
 const THEME='ethren-writing-studio-theme-live';
 const SETTINGS='ethren-writing-studio-settings-v2';
-const MASTER_BIBLE_URL='/data/story-bible.json';
+const MASTER_BIBLE_URL='/api/drive-bible';
 const BIBLE_SYNC_BACKUP='ethren-writing-studio-bible-sync-backup-v1';
 const MASTER_CHAPTERS_URL='/data/chapters.json';
 const CHAPTER_SYNC_BACKUP='ethren-writing-studio-chapter-sync-backup-v1';
@@ -1332,10 +1333,11 @@ function validateMasterBible(data){
 }
 async function fetchMasterBible(force=false){
   if(masterBibleCache && !force) return masterBibleCache;
-  const res=await fetch(MASTER_BIBLE_URL+'?t='+Date.now(),{cache:'no-store',credentials:'same-origin'});
+  const res=await fetch(MASTER_BIBLE_URL,{cache:'no-store',credentials:'same-origin'});
   if(res.status===401){window.location.href='/login.html?next='+encodeURIComponent(location.pathname+location.search);throw new Error('Login required.');}
-  if(!res.ok) throw new Error('Could not load the master Story Bible ('+res.status+').');
-  masterBibleCache=validateMasterBible(await res.json());
+  const data=await res.json().catch(()=>({}));
+  if(!res.ok) throw new Error(data?.error||('Could not load the Google Drive master Story Bible ('+res.status+').'));
+  masterBibleCache=validateMasterBible(data);
   return masterBibleCache;
 }
 function mergeBible(base, incoming){
@@ -1365,29 +1367,64 @@ function saveBibleSyncBackup(){
 }
 async function checkMasterBible(){
   try{
-    setBibleSyncStatus('Master Bible: checking…');
+    setBibleSyncStatus('Google Drive Bible: checking…');
     const master=await fetchMasterBible(true);
-    const remote=String(master.version||'unversioned');
-    const local=String(project.masterBibleVersion||'');
-    const when=master.updatedAt?new Date(master.updatedAt).toLocaleString():'';
-    if(local && local===remote) setBibleSyncStatus(`Master Bible v${remote} synced${when?' • '+when:''}`,'good');
-    else setBibleSyncStatus(`Master Bible v${remote} available${local?' • local v'+local:''}${when?' • '+when:''}`,'warn');
-  }catch(err){setBibleSyncStatus('Master Bible unavailable: '+err.message,'bad');}
+    const remoteVersion=String(master.version||'unversioned');
+    const remoteStamp=String(master.updatedAt||'');
+    const localStamp=String(project.masterBibleUpdatedAt||'');
+    const when=remoteStamp?new Date(remoteStamp).toLocaleString():'';
+    if(localStamp && remoteStamp && localStamp===remoteStamp) setBibleSyncStatus(`Google Drive Bible synced${when?' • '+when:''}`,'good');
+    else setBibleSyncStatus(`Google Drive Bible v${remoteVersion} has updates${when?' • '+when:''}`,'warn');
+  }catch(err){setBibleSyncStatus('Google Drive Bible unavailable: '+err.message,'bad');}
 }
 async function syncMasterBible(){
-  if(!confirm('Sync from the master Story Bible? Matching master entries will update, local-only entries will be kept, and a backup will be created first.')) return;
+  if(!confirm('Sync from the Google Drive master Story Bible? Matching master entries will update, local-only entries will be kept, and a backup will be created first.')) return;
   try{
-    setBibleSyncStatus('Syncing master Bible…');
+    setBibleSyncStatus('Syncing Google Drive Bible…');
     const master=await fetchMasterBible(true);
     saveBibleSyncBackup();
     project.bible=mergeBible(project.bible,master.bible);
     project.masterBibleVersion=String(master.version||'');
     project.masterBibleUpdatedAt=String(master.updatedAt||'');
     saveProject(); renderBible(); renderPresence();
-    setBibleSyncStatus(`Synced master Bible v${project.masterBibleVersion||'?'}`,'good');
-    alert('Master Story Bible synced. Your local-only entries were kept.');
+    setBibleSyncStatus(`Synced Google Drive Bible v${project.masterBibleVersion||'?'}`,'good');
+    alert('Google Drive Story Bible synced. Your local-only entries were kept.');
   }catch(err){setBibleSyncStatus('Sync failed: '+err.message,'bad');alert(err.message);}
 }
+async function pushMasterBible(){
+  sync(); saveProject();
+  if(!confirm('Publish your current local Story Bible to Google Drive? This replaces the Drive master. A remote-change check runs first so newer Drive edits are not overwritten.')) return;
+  try{
+    setBibleSyncStatus('Checking Google Drive before publish…');
+    const remote=await fetchMasterBible(true);
+    const localStamp=String(project.masterBibleUpdatedAt||'');
+    const remoteStamp=String(remote.updatedAt||'');
+    if(localStamp && remoteStamp && localStamp!==remoteStamp){
+      setBibleSyncStatus('Drive has newer changes. Sync first before publishing.','warn');
+      return alert('The Google Drive Bible changed since your last sync. Press Sync Drive first, review the changes, then publish again.');
+    }
+    const payload={
+      schemaVersion:1,
+      version:String(remote.version||'4.6.0'),
+      updatedAt:new Date().toISOString(),
+      title:String(remote.title||'Ethren Writing Studio Master Story Bible'),
+      description:String(remote.description||'Master Story Bible stored in Google Drive.'),
+      bible:deepClone(project.bible)
+    };
+    setBibleSyncStatus('Publishing Bible to Google Drive…');
+    const res=await fetch(MASTER_BIBLE_URL,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify({master:payload})});
+    if(res.status===401){window.location.href='/login.html?next='+encodeURIComponent(location.pathname+location.search);throw new Error('Login required.');}
+    const data=await res.json().catch(()=>({}));
+    if(!res.ok) throw new Error(data?.error||('Google Drive publish failed ('+res.status+').'));
+    masterBibleCache=validateMasterBible(data.master||payload);
+    project.masterBibleVersion=String(masterBibleCache.version||'');
+    project.masterBibleUpdatedAt=String(masterBibleCache.updatedAt||'');
+    saveProject();
+    setBibleSyncStatus('Published Bible to Google Drive • '+new Date(project.masterBibleUpdatedAt).toLocaleString(),'good');
+    alert('Story Bible published to Google Drive.');
+  }catch(err){setBibleSyncStatus('Drive publish failed: '+err.message,'bad');alert(err.message);}
+}
+
 function exportBibleFile(){
   sync(); saveProject();
   const payload={schemaVersion:1,exportedAt:new Date().toISOString(),masterBibleVersion:project.masterBibleVersion||'',storyBible:project.storyBible||'',bible:project.bible};
@@ -1425,6 +1462,7 @@ $('bibleModal').addEventListener('click',e=>{if(e.target===$('bibleModal')) clos
 document.querySelectorAll('[data-bible-tab]').forEach(btn=>btn.onclick=()=>{bibleTab=btn.dataset.bibleTab; $('bibleSearch').value=''; renderBible();});
 $('bibleSearch').oninput=renderBible;
 $('syncMasterBible').onclick=syncMasterBible;
+$('pushMasterBible').onclick=pushMasterBible;
 $('exportBible').onclick=exportBibleFile;
 $('importBible').onclick=()=>$('importBibleFile').click();
 $('restoreBibleBackup').onclick=restoreBibleBackup;
