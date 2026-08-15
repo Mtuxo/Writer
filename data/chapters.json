@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-14T23:32:00-07:00",
+  "updatedAt": "2026-08-15T06:52:18.768Z",
   "source": "Ethren Writing Studio master chapters",
   "chapters": [
     {
@@ -48,8 +48,14 @@
     {
       "id": "ch-8",
       "title": "Chapter 8",
-      "text": "",
-      "meta": {}
+      "text": "wwww",
+      "meta": {
+        "sceneGoal": "",
+        "sceneConflict": "",
+        "sceneReveal": "",
+        "sceneHook": "",
+        "wordTarget": 2000
+      }
     }
   ]
 }
