@@ -1020,7 +1020,7 @@ async function pullMasterChapters(){
   }
 }
 async function chapterSyncPost(payload){
-  const res=await fetch('/api/publish-chapters',{
+  const res=await fetch('/api/drive-publish-chapters',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify(payload),
@@ -1053,7 +1053,7 @@ async function publishAllChapters(){
     project.masterChaptersUpdatedAt=String(data.updatedAt||''); saveProject();
     masterChaptersCache=null;
     setChapterSyncStatus(`Published ${project.chapters.length} chapters to Google Drive`,'good');
-    alert('All chapters published to the private master copy.');
+    alert('All chapters published to GOOGLE DRIVE. ChatGPT can now read the published master copy.');
   }catch(err){setChapterSyncStatus('Publish failed: '+err.message,'bad');alert(err.message);}
   finally{btn.disabled=false;btn.textContent='Publish all chapters';}
 }
