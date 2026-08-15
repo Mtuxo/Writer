@@ -1,1 +1,603 @@
-
+{
+  "schemaVersion": 1,
+  "version": "4.4.0",
+  "updatedAt": "2026-08-14T23:29:00-07:00",
+  "title": "Ethren Writing Studio Master Story Bible",
+  "description": "Master story bible synced from the Writer repository. The browser merges matching master entries into the local working Bible while keeping local-only entries.",
+  "bible": {
+    "characters": [
+      {
+        "name": "Ethren Hollowmere",
+        "aliases": [
+          "Ethren"
+        ],
+        "status": "Canon + planned arc",
+        "role": "Protagonist",
+        "appearance": "Gray eyes; messy black hair. Later planning gives him duller gray eyes and dark circles after the Hollowmere massacre.",
+        "personality": "Observant; tends to stare without blinking; serious when focused; determined and stubborn. After the massacre he becomes more suspicious, unstable, and revenge-driven.",
+        "relationships": "Son of Alaric and Evelyn Hollowmere; younger brother of Lucan. Formally betrothed to Celestine Rosenthal. Cassiel is his closest friend/foil.",
+        "power": "Time-based Vestige/Tablet concept. Later working name: Tablet/Vestige of Inevitability. Rank 0 ideas include slowing through touch and extreme time perception. A time-themed Herald is planned.",
+        "secrets": "Plans include hiding his true power from academy staff with Cassiel. The watch from early chapters is intended to become guidance from a future version of Ethren.",
+        "arc": "Hollowmere heir → massacre survivor → mercenary gap → academy → revenge. He struggles with trust and eventually with love/attachment.",
+        "knowledge": "Knows his family, the arranged engagement, early Vestige basics, and what he personally witnesses. Do not let him know future reveals before he earns them.",
+        "notes": "Native to the world; reincarnation idea was scrapped."
+      },
+      {
+        "name": "Cassiel Veyr",
+        "aliases": [
+          "Cassiel",
+          "Cassian (old name)"
+        ],
+        "status": "Planned canon",
+        "role": "Ethren's friend / foil",
+        "appearance": "TBD in current bible.",
+        "personality": "Justice-driven, clever, and capable of manipulation. His arc comes from being neglected/overshadowed by a sibling.",
+        "relationships": "Close friend/foil to Ethren. His family expected a Flame power; a sister possesses a Flame tablet/vestige.",
+        "power": "Space-based Vestige/Tablet. Ethren and Cassiel plan to conceal the true nature of their powers at the academy.",
+        "secrets": "His power is much rarer than his family expected.",
+        "arc": "Neglected child → capable partner to Ethren → justice/identity arc.",
+        "knowledge": "Should only know Ethren's secrets that Ethren has actually shared with him.",
+        "notes": "Name changed from Cassian to Cassiel."
+      },
+      {
+        "name": "Celestine Rosenthal",
+        "aliases": [
+          "Celestine"
+        ],
+        "status": "Canon + planned arc",
+        "role": "Ethren's fiancée / emotional antagonist",
+        "appearance": "TBD in current bible.",
+        "personality": "Current draft presents her as distant/indifferent toward Ethren. Earlier planning frames her as publicly polished but emotionally disloyal.",
+        "relationships": "Daughter of Marquis Severin Rosenthal. Formally betrothed to Ethren. Closely associated with Leandor/Leander and later intended to be his romantic interest.",
+        "power": "Earlier bible idea: Silver Frost / Ice. Treat as planned until explicitly shown in the draft.",
+        "secrets": "Planned cheating/betrayal reveal with the duke's son / Leandor.",
+        "arc": "Arranged fiancée → betrayal reveal → part of Ethren's academy revenge/social conflict.",
+        "knowledge": "Knows the engagement and her own social circle; she is intended to be unaware of Ethren's later notoriety when he arrives at the academy.",
+        "notes": "House Rosenthal proposed the engagement for political/economic stability."
+      },
+      {
+        "name": "Mirelle Arden",
+        "aliases": [
+          "Mirelle"
+        ],
+        "status": "Canon appearance + planned arc",
+        "role": "Portal-team member / developing bond",
+        "appearance": "Brunette hair worn in a neat bun; calm, measuring presence in the current draft.",
+        "personality": "Observant and composed.",
+        "relationships": "Part of Celestine's social circle in Chapter 7. Planned to grow closer to Ethren during the first portal/survival scenario.",
+        "power": "Earlier bible idea: Sacred Spring / Water-Healing. Treat as planned until shown.",
+        "secrets": "TBD.",
+        "arc": "Social-circle member → portal teammate → closer connection to Ethren.",
+        "knowledge": "Only what she has personally observed or been told.",
+        "notes": "Do not force romance too quickly."
+      },
+      {
+        "name": "Crown Prince Evander",
+        "aliases": [
+          "Evander",
+          "Crown Prince"
+        ],
+        "status": "Canon",
+        "role": "Royal rival / power showcase",
+        "appearance": "Tall, bright blond hair.",
+        "personality": "Confident, competitive, and willing to provoke Leandor.",
+        "relationships": "Crown Prince; rival to Leandor Valemont.",
+        "power": "Principle of Fear. Chapter 7 ends with Leandor realizing the sensation Evander caused is fear.",
+        "secrets": "The exact mechanics/limits of Fear should remain controlled until explained.",
+        "arc": "Early high-level benchmark and recurring royal figure.",
+        "knowledge": "Royal/noble knowledge appropriate to his position; do not grant him private Hollowmere secrets without a reason.",
+        "notes": "Fear is established."
+      },
+      {
+        "name": "Leandor Valemont",
+        "aliases": [
+          "Leandor",
+          "Leander (older spelling/notes)"
+        ],
+        "status": "Canon; spelling needs consistency",
+        "role": "Noble rival / Celestine's interest",
+        "appearance": "TBD in current bible.",
+        "personality": "Proud, talented, competitive.",
+        "relationships": "Son of Derick Valemont. Rival to Crown Prince Evander. Closely associated with Celestine.",
+        "power": "A yellow/golden crystal Vestige appears in Chapter 7 and forms a hard translucent barrier. Exact Principle name is not yet locked in the current draft.",
+        "secrets": "TBD.",
+        "arc": "Promising noble → academy/social rival → portal teammate in planning.",
+        "knowledge": "Noble and personal knowledge only; track what Celestine tells him.",
+        "notes": "Continuity checker should flag Leandor vs Leander spelling drift."
+      },
+      {
+        "name": "Lucan Hollowmere",
+        "aliases": [
+          "Lucan"
+        ],
+        "status": "Canon",
+        "role": "Ethren's older brother",
+        "appearance": "TBD.",
+        "personality": "Teasing but genuinely concerned for Ethren.",
+        "relationships": "Older brother of Ethren; son of Alaric and Evelyn.",
+        "power": "TBD.",
+        "secrets": "TBD.",
+        "arc": "Family anchor in Ethren's early life.",
+        "knowledge": "Knows family/social information appropriate to his scenes.",
+        "notes": "His teasing should still show underlying care."
+      },
+      {
+        "name": "Alaric Hollowmere",
+        "aliases": [
+          "Alaric",
+          "Lord Alaric"
+        ],
+        "status": "Canon",
+        "role": "Count of Hollowmere / Ethren's father",
+        "appearance": "TBD.",
+        "personality": "Controlled, disciplined, patient, protective beneath a restrained exterior.",
+        "relationships": "Husband of Evelyn; father of Lucan and Ethren.",
+        "power": "Possesses a Vestige but refuses to reveal it to young Ethren in the current draft.",
+        "secrets": "His Vestige/power and what he knows about Ethren's unusual signs remain concealed.",
+        "arc": "Mentor/father figure whose loss is central to Ethren's planned revenge arc.",
+        "knowledge": "Knows more about Vestiges and noble affairs than Ethren.",
+        "notes": "Count of Hollowmere."
+      },
+      {
+        "name": "Evelyn Hollowmere",
+        "aliases": [
+          "Evelyn"
+        ],
+        "status": "Canon",
+        "role": "Ethren's mother",
+        "appearance": "TBD.",
+        "personality": "Protective and openly concerned for Ethren.",
+        "relationships": "Wife of Alaric; mother of Lucan and Ethren.",
+        "power": "TBD.",
+        "secrets": "TBD.",
+        "arc": "Family anchor before the planned massacre.",
+        "knowledge": "Family and noble-house knowledge appropriate to her role.",
+        "notes": "Preferred spelling is Evelyn."
+      },
+      {
+        "name": "Seraphina Veyr",
+        "aliases": [
+          "Seraphina"
+        ],
+        "status": "Planned/introduced social circle",
+        "role": "Portal-team member",
+        "appearance": "TBD.",
+        "personality": "TBD.",
+        "relationships": "Appears in Celestine's circle in Chapter 7. Earlier planning connects a Veyr sister with Flame; confirm exact sibling relationship before locking it.",
+        "power": "Earlier bible idea: Flame / Crowned Inferno. Treat as planned until shown.",
+        "secrets": "TBD.",
+        "arc": "Planned portal-team member.",
+        "knowledge": "TBD.",
+        "notes": "Verify relation to Cassiel before publishing as canon."
+      },
+      {
+        "name": "Rowan Thane",
+        "aliases": [
+          "Rowan"
+        ],
+        "status": "Planned/introduced social circle",
+        "role": "Portal-team member",
+        "appearance": "TBD.",
+        "personality": "TBD.",
+        "relationships": "Appears in Celestine's circle in Chapter 7.",
+        "power": "Earlier bible idea: Earth/defense / Unbroken Bastion. Treat as planned until shown.",
+        "secrets": "TBD.",
+        "arc": "Planned portal-team member.",
+        "knowledge": "TBD.",
+        "notes": "TBD."
+      },
+      {
+        "name": "Derick Valemont",
+        "aliases": [
+          "Derick"
+        ],
+        "status": "Canon",
+        "role": "Leandor's father",
+        "appearance": "Current draft introduces him at the Valemont training ground; clothing is somewhat wrinkled.",
+        "personality": "Public, proud of Valemont strength.",
+        "relationships": "Father of Leandor Valemont.",
+        "power": "TBD.",
+        "secrets": "TBD.",
+        "arc": "Noble-house authority figure.",
+        "knowledge": "Knows Valemont affairs.",
+        "notes": "Judges Evander vs Leandor in Chapter 7."
+      },
+      {
+        "name": "Severin Rosenthal",
+        "aliases": [
+          "Severin",
+          "Marquis Rosenthal"
+        ],
+        "status": "Canon",
+        "role": "Head of House Rosenthal",
+        "appearance": "TBD.",
+        "personality": "Politically minded from the engagement letter.",
+        "relationships": "Father of Celestine Rosenthal.",
+        "power": "TBD.",
+        "secrets": "TBD.",
+        "arc": "Political/noble figure.",
+        "knowledge": "Rosenthal political and family matters.",
+        "notes": "Marquis; proposed Celestine/Ethren union."
+      },
+      {
+        "name": "Hedric Alops",
+        "aliases": [
+          "Hedric",
+          "Captain Hedric"
+        ],
+        "status": "Planned/introduced later",
+        "role": "Valemont gate captain",
+        "appearance": "TBD.",
+        "personality": "TBD.",
+        "relationships": "Serves at the Valemont estate.",
+        "power": "TBD.",
+        "secrets": "TBD.",
+        "arc": "Supporting noble-estate figure.",
+        "knowledge": "Valemont security/household matters.",
+        "notes": "Introduced greeting Alaric at the gate in planning/draft scenes."
+      }
+    ],
+    "vestiges": [
+      {
+        "name": "Vestige Basics",
+        "status": "Canon rule",
+        "details": "A Vestige gives its bearer power over a Principle. Vestiges usually appear as floating crystals; color, markings, rings and surrounding effects vary by Principle and bearer."
+      },
+      {
+        "name": "Ethren — Time / Inevitability",
+        "status": "Working canon",
+        "details": "Ethren's power is time-based. Later working concept is a rare inevitability/time variant. Rank-0 ideas: slowing by touch and extreme time perception. He may manifest a time-themed Herald."
+      },
+      {
+        "name": "Cassiel — Space",
+        "status": "Planned canon",
+        "details": "Rare Space-based Vestige/Tablet; hidden from academy staff in planning."
+      },
+      {
+        "name": "Evander — Fear",
+        "status": "Canon",
+        "details": "Principle of Fear; demonstrated against Leandor in Chapter 7."
+      },
+      {
+        "name": "Leandor — Barrier Vestige",
+        "status": "Canon appearance, Principle TBD",
+        "details": "Yellow/golden crystal with runes and translucent icy-looking layer; creates a hard translucent barrier."
+      },
+      {
+        "name": "Mirelle — Water/Healing",
+        "status": "Earlier bible idea",
+        "details": "Sacred Spring / Water-Healing concept; confirm in prose before treating as revealed canon."
+      },
+      {
+        "name": "Celestine — Ice",
+        "status": "Earlier bible idea",
+        "details": "Silver Frost / Ice concept; confirm in prose before treating as revealed canon."
+      },
+      {
+        "name": "Seraphina — Flame",
+        "status": "Earlier bible idea",
+        "details": "Flame / Crowned Inferno concept."
+      },
+      {
+        "name": "Rowan — Earth/Defense",
+        "status": "Earlier bible idea",
+        "details": "Earth-defense / Unbroken Bastion concept."
+      },
+      {
+        "name": "Alaric — Concealed",
+        "status": "Canon mystery",
+        "details": "Alaric has a Vestige but refuses to reveal it to young Ethren."
+      }
+    ],
+    "principles": [
+      {
+        "name": "Time",
+        "status": "Core",
+        "details": "Ethren's original/core concept. Includes time slowing and extreme perception ideas."
+      },
+      {
+        "name": "Inevitability / Finality",
+        "status": "Working rename",
+        "details": "Possible evolved name for Ethren's rare time variant. Finality was considered as an alternative name."
+      },
+      {
+        "name": "Fear",
+        "status": "Canon",
+        "details": "Evander's Principle."
+      },
+      {
+        "name": "Space",
+        "status": "Planned canon",
+        "details": "Cassiel's rare Principle."
+      },
+      {
+        "name": "Bone / Remains",
+        "status": "Planned later arc",
+        "details": "Ethren is intended to gain a Bone/Remains-type Principle during the other-dimension/future-self mentor arc."
+      },
+      {
+        "name": "Parasite",
+        "status": "Concept pool",
+        "details": "A Principle concept the author liked; not assigned as canon yet."
+      },
+      {
+        "name": "Manifestations",
+        "status": "System rule",
+        "details": "Manifestations are individualized ways of expressing a Principle. Dimensions can contain learnable Manifestations, but each bearer may manifest them differently."
+      }
+    ],
+    "dimensions": [
+      {
+        "name": "Dimension System",
+        "status": "Working canon",
+        "details": "Dimensions/portals are rank-based and support the academy story rather than replacing it. Rank advancement and objectives/materials are tied to higher-rank Dimensions in planning."
+      },
+      {
+        "name": "First Portal Team",
+        "status": "Planned",
+        "details": "Seven-person team concept: Ethren, Cassiel, Celestine, Leandor, Seraphina, Mirelle, Rowan."
+      },
+      {
+        "name": "The City Without Shadows",
+        "status": "Earlier first-portal concept",
+        "details": "Earlier concept with seven seals, stopped clocks, moving shadows, folded space and Hollowmere clues. Keep as an option unless superseded."
+      },
+      {
+        "name": "Historical Portal Concepts",
+        "status": "Open ideas",
+        "details": "Roman Empire / Rome vs Carthage and other history-based scenarios were considered. Survival arc should stay relatively short."
+      },
+      {
+        "name": "Future-Ethren Dimension",
+        "status": "Planned later arc",
+        "details": "Desolate forest, Gothic buildings/cathedral, and a mentor who is actually a future bad-timeline version of Ethren. Ethren gains Bone/Remains-related power somehow during this arc."
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hollowmere Manor",
+        "status": "Canon",
+        "details": "Three-story dark-gray stone noble estate, smaller than a duke's estate. Courtyard, training ground, veranda, dining room and Alaric's office are established."
+      },
+      {
+        "name": "Valemont Estate / Training Ground",
+        "status": "Canon",
+        "details": "Location of the social gathering/banquet arc and Evander vs Leandor duel. Valemont family knights/guards are present."
+      },
+      {
+        "name": "Academy",
+        "status": "Core planned setting",
+        "details": "All students are power users. Entrance tournament/FFA concept; top ten enter a council. Academy arc is central; Dimensions are supporting arcs."
+      },
+      {
+        "name": "Gothic Cathedral Dimension",
+        "status": "Planned later",
+        "details": "Part of the desolate other-dimension where Ethren encounters his future-self mentor."
+      },
+      {
+        "name": "The City Without Shadows",
+        "status": "Earlier concept",
+        "details": "Possible portal city with stopped clocks, moving shadows and folded space."
+      }
+    ],
+    "nobility": [
+      {
+        "name": "House Hollowmere",
+        "status": "Canon",
+        "details": "Alaric is Count of Hollowmere. Family: Alaric, Evelyn, Lucan, Ethren."
+      },
+      {
+        "name": "House Rosenthal",
+        "status": "Canon",
+        "details": "Severin Rosenthal is a Marquis and head of the house. Celestine is his daughter. Proposed marriage to House Hollowmere for stability/prosperity."
+      },
+      {
+        "name": "House Valemont",
+        "status": "Canon/working title",
+        "details": "Leandor and his father Derick belong to House Valemont. Earlier planning frames Leandor as a duke's son; verify Derick's exact title in final canon."
+      },
+      {
+        "name": "Royal Family",
+        "status": "Canon",
+        "details": "Evander is the Crown Prince."
+      }
+    ],
+    "timeline": [
+      {
+        "name": "Age 6 — training begins",
+        "status": "Canon",
+        "details": "Ethren insists on sword training, trains with Alaric, experiences the backward-clock/faceless-creature vision and learns basic Vestige information."
+      },
+      {
+        "name": "Rosenthal arrangement",
+        "status": "Canon",
+        "details": "House Rosenthal proposes a formal betrothal between Celestine and Ethren."
+      },
+      {
+        "name": "Valemont gathering / duel",
+        "status": "Canon through Chapter 7",
+        "details": "Ethren attends the Valemont gathering; Evander challenges Leandor. Leandor manifests a barrier Vestige; Evander's Fear Principle is revealed."
+      },
+      {
+        "name": "Hollowmere massacre",
+        "status": "Planned major event",
+        "details": "House Hollowmere is destroyed; Ethren becomes suspicious, unstable and revenge-driven."
+      },
+      {
+        "name": "Three-year gap",
+        "status": "Planned",
+        "details": "Ethren spends part of the gap with a mercenary group. His parents had prepared funds/contact for academy entry around age 14."
+      },
+      {
+        "name": "Academy entry",
+        "status": "Planned",
+        "details": "Ethren enters around age 13–14. Entrance tournament and council/top-ten ideas. Ethren and Cassiel conceal their true powers."
+      },
+      {
+        "name": "Cheating reveal",
+        "status": "Planned",
+        "details": "Ethren sees Celestine with the duke's son/Leandor holding hands; she is initially unaware of his later identity/notoriety."
+      },
+      {
+        "name": "First portal",
+        "status": "Planned",
+        "details": "A seven-person team including Ethren/Cassiel/Celestine/Leandor/Seraphina/Mirelle/Rowan. Portal should advance relationships without becoming too long."
+      },
+      {
+        "name": "Future-Ethren arc",
+        "status": "Planned later",
+        "details": "Other dimension, Gothic cathedral, future bad-timeline Ethren as mentor, Bone/Remains power gain."
+      }
+    ],
+    "relationships": [
+      {
+        "name": "Ethren ↔ Cassiel",
+        "status": "Core friendship",
+        "details": "Friends/foils. Ethren is revenge-driven; Cassiel carries a justice/neglect arc. They cooperate to hide their rare powers."
+      },
+      {
+        "name": "Ethren ↔ Celestine",
+        "status": "Arranged → betrayal",
+        "details": "Political engagement. Celestine is distant; planned cheating/betrayal becomes a major emotional/social conflict."
+      },
+      {
+        "name": "Celestine ↔ Leandor",
+        "status": "Planned romance",
+        "details": "Closely associated in the current draft; intended love-interest/cheating connection."
+      },
+      {
+        "name": "Ethren ↔ Mirelle",
+        "status": "Slow development",
+        "details": "Planned to become closer during the first portal/survival scenario. Do not rush the bond."
+      },
+      {
+        "name": "Evander ↔ Leandor",
+        "status": "Rivals",
+        "details": "Competitive noble/royal rivalry, shown directly in Chapter 7."
+      },
+      {
+        "name": "Ethren ↔ Alaric",
+        "status": "Father/son",
+        "details": "Ethren wants to prove himself; Alaric teaches discipline and restraint."
+      },
+      {
+        "name": "Ethren ↔ Lucan",
+        "status": "Brothers",
+        "details": "Lucan teases Ethren but shows genuine concern."
+      }
+    ],
+    "mysteries": [
+      {
+        "name": "The watch",
+        "status": "Planned long-term mystery",
+        "details": "Early watch is intended to become a guidance device from a future version of Ethren."
+      },
+      {
+        "name": "Backward clock vision",
+        "status": "Canon mystery",
+        "details": "Ethren sees an enormous backward-turning clock, a faceless marked creature and smaller clocks."
+      },
+      {
+        "name": "Alaric's Vestige",
+        "status": "Open mystery",
+        "details": "Alaric refuses to reveal his Vestige to young Ethren."
+      },
+      {
+        "name": "Hollowmere massacre",
+        "status": "Planned mystery/revenge engine",
+        "details": "Who caused it, why, and what larger conflict it connects to should be tracked."
+      },
+      {
+        "name": "Dead gods / higher beings",
+        "status": "World-lore plan",
+        "details": "The setting has 'gods are dead' lore and powerful antagonistic beings in a deadlock. Exact cosmology still needs locking."
+      },
+      {
+        "name": "Future mentor identity",
+        "status": "Planned reveal",
+        "details": "The Gothic-dimension mentor is actually a future bad-timeline version of Ethren."
+      }
+    ],
+    "foreshadowing": [
+      {
+        "name": "Watch → future Ethren",
+        "status": "Active planned thread",
+        "details": "Seed subtle usefulness/oddity before the future-self reveal. Avoid explaining it too early."
+      },
+      {
+        "name": "Clock vision → Ethren's power",
+        "status": "Active",
+        "details": "Backward clock/faceless creature foreshadows Ethren's unusual time-related Vestige and larger fate."
+      },
+      {
+        "name": "Fear reveal",
+        "status": "Paid off in Chapter 7",
+        "details": "Physical symptoms culminate in the single-word realization: Fear."
+      },
+      {
+        "name": "Concealed true powers",
+        "status": "Planned academy thread",
+        "details": "Ethren and Cassiel intend to hide their actual powers from academy staff."
+      },
+      {
+        "name": "Future-Ethren mentor",
+        "status": "Long-term",
+        "details": "Seed echoes of Ethren's habits, phrasing or time motifs without making identity obvious."
+      }
+    ],
+    "knowledge": [
+      {
+        "name": "Ethren",
+        "status": "Track carefully",
+        "details": "Knows only what he has witnessed/told. He should not know future-self, massacre culprit, Celestine betrayal or academy secrets before their reveals."
+      },
+      {
+        "name": "Cassiel",
+        "status": "Track carefully",
+        "details": "Can know his own Space power and whatever Ethren shares; do not automatically give him Ethren's hidden future information."
+      },
+      {
+        "name": "Celestine",
+        "status": "Track carefully",
+        "details": "Knows engagement and her own circle. Planned to be unaware of Ethren's later academy notoriety/identity until the intended reveal."
+      },
+      {
+        "name": "Mirelle",
+        "status": "Track carefully",
+        "details": "Calm observer; only knows what she sees/hears."
+      },
+      {
+        "name": "Evander",
+        "status": "Track carefully",
+        "details": "Royal knowledge does not equal omniscience; private Hollowmere facts still need a source."
+      },
+      {
+        "name": "Leandor",
+        "status": "Track carefully",
+        "details": "Track what Celestine and Valemont family tell him; avoid accidental knowledge of Ethren's hidden rare power."
+      }
+    ],
+    "canonMemory": [
+      {
+        "name": "Core style rule",
+        "status": "Permanent AI instruction",
+        "details": "Preserve direct web-novel prose, short paragraphs, simple clarity, effective dramatic fragments, occasional tiny POV shifts, and single-quoted direct thoughts. Give advice before rewriting."
+      },
+      {
+        "name": "Naming rule",
+        "status": "Permanent",
+        "details": "Evelyn spelling is fixed. Cassiel replaced Cassian. Current draft uses Leandor; older notes may say Leander, so flag inconsistency instead of silently changing canon."
+      },
+      {
+        "name": "Reincarnation",
+        "status": "Scrapped",
+        "details": "Ethren is native to the world. Do not introduce reincarnation."
+      },
+      {
+        "name": "Academy vs Dimensions",
+        "status": "Permanent planning rule",
+        "details": "Academy is the core arc; Dimensions support it. Avoid letting portal survival arcs drag too long."
+      }
+    ]
+  }
+}
